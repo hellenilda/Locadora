@@ -1,5 +1,9 @@
 package locadora.dao;
 
-public interface PagamentoDAO {
+import java.util.ArrayList;
 
+import locadora.model.Pagamento;
+
+public interface PagamentoDAO {
+	ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
 }

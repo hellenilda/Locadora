@@ -2,27 +2,43 @@ package locadora.dao;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import locadora.model.Veiculo;
 
 public class VeiculoDAO implements Persistencia<Veiculo> {
-	private static final String ARQUIVO_JSON = "veiculos.json";
-	List<Veiculo> veiculos;
+	private static final String ARQUIVO_JSON = "../registros/veiculos.json";
+	private List<Veiculo> veiculos;
 	private Gson gson;
 
+	public VeiculoDAO() {
+		this.gson = new GsonBuilder().setPrettyPrinting().create();
+		this.veiculos = new ArrayList<>();
+		carregar(); // Ao iniciar, carrega os veículos do arquivo JSON
+	}
+
+	// Salva o pagamento em JSON
 	public void salvar() {
+		if (veiculos == null) {
+			System.err.println("Lista de veículos está nula. Nada foi salvo.");
+			return;
+		}
+
 		try (FileWriter writer = new FileWriter(ARQUIVO_JSON)) {
 			gson.toJson(veiculos, writer);
-		} catch (Exception e) {
+		} catch (IOException e) {
 			System.err.println("Erro ao salvar veículos no arquivo JSON: " + e.getMessage());
 		}
 	}
 
+	// Carrega o registro salvo em JSON
 	public void carregar() {
 		try (FileReader reader = new FileReader(ARQUIVO_JSON)) {
 			Type tipoLista = new TypeToken<ArrayList<Veiculo>>() {
@@ -31,8 +47,10 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 			if (veiculos == null) {
 				veiculos = new ArrayList<Veiculo>(); // Se o arquivo estiver vazio, inicializa a lista
 			}
-		} catch (Exception e) {
+		} catch (IOException e) {
 			System.err.println("Erro ao carregar veículos do arquivo JSON: " + e.getMessage());
+		} catch (JsonSyntaxException e) {
+			System.err.println("Erro na sintaxe do arquivo JSON: " + e.getMessage());
 		}
 	}
 
@@ -47,6 +65,11 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 	}
 
 	public void adicionarVeiculo(Veiculo veiculo) {
+		if (veiculo == null) {
+			System.err.println("Veículo não pode ser nulo!");
+			return;
+		}
+
 		if (buscarVeiculoPorPlaca(veiculo.getPlaca()) == null) {
 			veiculos.add(veiculo);
 			salvar(); // Salva a lista em JSON
@@ -56,6 +79,11 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 	}
 
 	public void atualizarVeiculo(Veiculo veiculoAtualizado) {
+		if (veiculoAtualizado == null) {
+			System.err.println("Veículo atualizado não pode ser nulo!");
+			return;
+		}
+
 		Veiculo veiculoExistente = buscarVeiculoPorPlaca(veiculoAtualizado.getPlaca());
 
 		if (veiculoExistente != null) {
@@ -73,8 +101,9 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 		if (veiculo != null) {
 			veiculos.remove(veiculo);
 			salvar();
+			System.out.println("Veículo com placa " + placa + " removido com sucesso!");
 		} else {
-			System.err.println("Veiculo com placa " + placa + " não encontrado!");
+			System.err.println("Veículo com placa " + placa + " não encontrado!");
 		}
 	}
 

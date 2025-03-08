@@ -1,6 +1,6 @@
 package locadora.model;
 
-public abstract class Veiculo {
+public class Veiculo {
 	private String placa;
 	private String modelo;
 	private int ano;
@@ -13,7 +13,9 @@ public abstract class Veiculo {
 		this.disponivel = true;
 	}
 
-	public abstract double calcularCustoLocacao(int dias);
+	public double calcularCustoLocacao(int dias) {
+		return 0.0;
+	};
 
 	public String getPlaca() {
 		return placa;
@@ -46,5 +48,4 @@ public abstract class Veiculo {
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-
 }

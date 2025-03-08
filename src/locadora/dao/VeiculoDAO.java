@@ -14,7 +14,7 @@ import com.google.gson.reflect.TypeToken;
 import locadora.model.Veiculo;
 
 public class VeiculoDAO implements Persistencia<Veiculo> {
-	private static final String ARQUIVO_JSON = "../registros/veiculos.json";
+	private static final String REGISTRO_VEICULOS ="registros/veiculos.json";
 	private List<Veiculo> veiculos;
 	private Gson gson;
 
@@ -31,7 +31,7 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 			return;
 		}
 
-		try (FileWriter writer = new FileWriter(ARQUIVO_JSON)) {
+		try (FileWriter writer = new FileWriter(REGISTRO_VEICULOS)) {
 			gson.toJson(veiculos, writer);
 		} catch (IOException e) {
 			System.err.println("Erro ao salvar veículos no arquivo JSON: " + e.getMessage());
@@ -40,7 +40,7 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 
 	// Carrega o registro salvo em JSON
 	public void carregar() {
-		try (FileReader reader = new FileReader(ARQUIVO_JSON)) {
+		try (FileReader reader = new FileReader(REGISTRO_VEICULOS)) {
 			Type tipoLista = new TypeToken<ArrayList<Veiculo>>() {
 			}.getType();
 			veiculos = gson.fromJson(reader, tipoLista);

@@ -1,5 +1,6 @@
 package locadora.dao;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import locadora.model.Veiculo;
 
 public class VeiculoDAO implements Persistencia<Veiculo> {
-	private static final String REGISTRO_VEICULOS ="registros/veiculos.json";
+	private static final String REGISTRO_VEICULOS = "registros/veiculos.json";
 	private List<Veiculo> veiculos;
 	private Gson gson;
 
@@ -25,6 +26,7 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 	}
 
 	// Salva o pagamento em JSON
+	@Override
 	public void salvar() {
 		if (veiculos == null) {
 			System.err.println("Lista de veículos está nula. Nada foi salvo.");
@@ -39,7 +41,16 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 	}
 
 	// Carrega o registro salvo em JSON
+	@Override
 	public void carregar() {
+		File arquivo = new File(REGISTRO_VEICULOS);
+
+		// Se o arquivo não existe ou está vazio, inicializa a lista e retorna
+		if (!arquivo.exists() || arquivo.length() == 0) {
+			veiculos = new ArrayList<>();
+			return;
+		}
+
 		try (FileReader reader = new FileReader(REGISTRO_VEICULOS)) {
 			Type tipoLista = new TypeToken<ArrayList<Veiculo>>() {
 			}.getType();

@@ -1,0 +1,14 @@
+[
+  {
+    "placa": "ABC-1234",
+    "modelo": "Fusca",
+    "ano": 1970,
+    "disponivel": true
+  },
+  {
+    "placa": "XYZ-5678",
+    "modelo": "CG 150",
+    "ano": 2020,
+    "disponivel": true
+  }
+]

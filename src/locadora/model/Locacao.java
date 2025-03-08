@@ -3,52 +3,54 @@ package locadora.model;
 import java.time.LocalDate;
 
 public class Locacao {
-	private Cliente cliente;
+	private String id;
 	private Veiculo veiculo;
+	private String cpfCliente;
 	private LocalDate dataRetirada;
-	private LocalDate dataDevolucao;
+	private LocalDate dataDevolucaoPrevista;
+	private LocalDate dataDevolucaoReal;
 	private double valorTotal;
+	private boolean pago;
 
-	public Locacao(Cliente cliente, Veiculo veiculo, LocalDate dataRetirada, LocalDate dataDevolucao,
-			double valorTotal) {
-		super();
-		this.cliente = cliente;
+	public Locacao(Veiculo veiculo, String cpfCliente, LocalDate dataRetirada, LocalDate dataDevolucaoPrevista) {
 		this.veiculo = veiculo;
+		this.cpfCliente = cpfCliente;
 		this.dataRetirada = dataRetirada;
-		this.dataDevolucao = dataDevolucao;
-		this.valorTotal = valorTotal;
+		this.dataDevolucaoPrevista = dataDevolucaoPrevista;
+		this.id = gerarId();
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	private String gerarId() {
+		return "LOC-" + System.currentTimeMillis(); // ID único baseado no timestamp
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	// Getters e Setters
+	public String getId() {
+		return id;
 	}
 
 	public Veiculo getVeiculo() {
 		return veiculo;
 	}
 
-	public void setVeiculo(Veiculo veiculo) {
-		this.veiculo = veiculo;
+	public String getCpfCliente() {
+		return cpfCliente;
 	}
 
 	public LocalDate getDataRetirada() {
 		return dataRetirada;
 	}
 
-	public void setDataRetirada(LocalDate dataRetirada) {
-		this.dataRetirada = dataRetirada;
+	public LocalDate getDataDevolucaoPrevista() {
+		return dataDevolucaoPrevista;
 	}
 
-	public LocalDate getDataDevolucao() {
-		return dataDevolucao;
+	public LocalDate getDataDevolucaoReal() {
+		return dataDevolucaoReal;
 	}
 
-	public void setDataDevolucao(LocalDate dataDevolucao) {
-		this.dataDevolucao = dataDevolucao;
+	public void setDataDevolucaoReal(LocalDate dataDevolucaoReal) {
+		this.dataDevolucaoReal = dataDevolucaoReal;
 	}
 
 	public double getValorTotal() {
@@ -57,6 +59,21 @@ public class Locacao {
 
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
+	}
+
+	public boolean isPago() {
+		return pago;
+	}
+
+	public void setPago(boolean pago) {
+		this.pago = pago;
+	}
+
+	@Override
+	public String toString() {
+		return "Locacao [id=" + id + ", veiculo=" + veiculo + ", cpfCliente=" + cpfCliente + ", dataRetirada="
+				+ dataRetirada + ", dataDevolucaoPrevista=" + dataDevolucaoPrevista + ", dataDevolucaoReal="
+				+ dataDevolucaoReal + ", valorTotal=" + valorTotal + ", pago=" + pago + "]";
 	}
 
 }

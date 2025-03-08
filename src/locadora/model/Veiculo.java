@@ -47,4 +47,9 @@ public abstract class Veiculo {
 		this.disponivel = disponivel;
 	}
 
+	@Override
+	public String toString() {
+		return "Veiculo [placa=" + placa + ", modelo=" + modelo + ", ano=" + ano + ", disponivel=" + disponivel + "]";
+	}
+
 }

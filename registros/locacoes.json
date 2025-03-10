@@ -1,0 +1,46 @@
+[
+  {
+    "id": "LOC-1741625613262",
+    "veiculo": {
+      "placa": "4321-XYZ",
+      "modelo": "Bros",
+      "ano": 2011,
+      "disponivel": true
+    },
+    "cpfCliente": "Hellen",
+    "dataRetirada": "2025-03-10",
+    "dataDevolucaoPrevista": "2025-03-12",
+    "dataDevolucaoReal": "2025-02-12",
+    "valorTotal": 0.0,
+    "pago": false
+  },
+  {
+    "id": "LOC-1741625963578",
+    "veiculo": {
+      "placa": "1234-XYZ",
+      "modelo": "Fusca",
+      "ano": 1070,
+      "disponivel": true
+    },
+    "cpfCliente": "Hellen",
+    "dataRetirada": "2025-03-10",
+    "dataDevolucaoPrevista": "2025-03-12",
+    "valorTotal": 0.0,
+    "pago": false
+  },
+  {
+    "id": "LOC-1741625668252",
+    "veiculo": {
+      "placa": "1234-XYZ",
+      "modelo": "Fusca",
+      "ano": 1070,
+      "disponivel": true
+    },
+    "cpfCliente": "Hellen",
+    "dataRetirada": "2025-03-10",
+    "dataDevolucaoPrevista": "2025-03-15",
+    "dataDevolucaoReal": "2025-02-12",
+    "valorTotal": 0.0,
+    "pago": true
+  }
+]

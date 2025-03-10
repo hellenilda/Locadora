@@ -6,6 +6,7 @@ public class Caminhao extends Veiculo {
 		super(placa, modelo, ano);
 	}
 
+	@Override
 	public double calcularCustoLocacao(int dias) {
 		return dias * 200;
 	}

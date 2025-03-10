@@ -24,7 +24,7 @@ public class TelaCadastroVeiculo extends JFrame {
 		campoPlaca = new JTextField();
 		campoModelo = new JTextField();
 		campoAno = new JTextField();
-		comboTipo = new JComboBox<>(new String[] { "Carro", "Moto", "Caminhão" });
+		comboTipo = new JComboBox<>(new String[] { "Carro", "Moto", "Caminhao" });
 
 		add(new JLabel("Placa:"));
 		add(campoPlaca);

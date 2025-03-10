@@ -6,7 +6,7 @@ public class Moto extends Veiculo {
 	}
 
 	public double calcularCustoLocacao(int dias) {
-		return dias * 100;
+		return dias * 50;
 	}
 
 	@Override

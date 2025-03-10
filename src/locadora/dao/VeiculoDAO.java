@@ -103,18 +103,6 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 		}
 	}
 
-	public void removerVeiculo(String placa) {
-		Veiculo veiculo = buscarVeiculoPorPlaca(placa);
-
-		if (veiculo != null) {
-			veiculos.remove(veiculo);
-			salvar();
-			System.out.println("Veículo com placa " + placa + " removido com sucesso!");
-		} else {
-			System.err.println("Veículo com placa " + placa + " não encontrado!");
-		}
-	}
-
 	public List<Veiculo> listarVeiculos() {
 		return veiculos;
 	}

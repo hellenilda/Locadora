@@ -6,7 +6,7 @@ import java.awt.*;
 public class TelaPrincipal extends JFrame {
 	public TelaPrincipal() {
 		setTitle("Sistema de Locação de Veículos");
-		setSize(800, 600);
+		setSize(800, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
@@ -15,7 +15,7 @@ public class TelaPrincipal extends JFrame {
 
 		// Barra lateral (menu)
 		JPanel menuLateral = new JPanel();
-		menuLateral.setLayout(new GridLayout(9, 1, 5, 5));
+		menuLateral.setLayout(new GridLayout(7, 1, 5, 5));
 		menuLateral.setBackground(new Color(50, 50, 50));
 
 		JButton btnCadastroCliente = new JButton("Cadastro de Clientes");
@@ -24,8 +24,6 @@ public class TelaPrincipal extends JFrame {
 		JButton btnLocacao = new JButton("Locação de Veículos");
 		JButton btnDevolucao = new JButton("Devolução de Veículos");
 		JButton btnPagamentos = new JButton("Registro de Pagamentos");
-		JButton btnRelatorios = new JButton("Relatórios");
-		JButton btnLogin = new JButton("Login");
 		JButton btnSair = new JButton("Sair");
 
 		// Adiciona os botões ao menu
@@ -35,8 +33,6 @@ public class TelaPrincipal extends JFrame {
 		menuLateral.add(btnLocacao);
 		menuLateral.add(btnDevolucao);
 		menuLateral.add(btnPagamentos);
-		menuLateral.add(btnRelatorios);
-		menuLateral.add(btnLogin);
 		menuLateral.add(btnSair);
 
 		// Painel de conteúdo onde as telas serão exibidas
@@ -55,8 +51,6 @@ public class TelaPrincipal extends JFrame {
 		btnDevolucao.addActionListener(e -> new TelaDevolucao().setVisible(true));
 		btnListagem.addActionListener(e -> new TelaListagem().setVisible(true));
 		btnPagamentos.addActionListener(e -> new TelaPagamentos().setVisible(true));
-		btnRelatorios.addActionListener(e -> new TelaRelatorios().setVisible(true));
-		btnLogin.addActionListener(e -> new TelaLogin().setVisible(true));
 		btnSair.addActionListener(e -> System.exit(0));
 	}
 

@@ -44,10 +44,6 @@ public class VeiculoController {
 		veiculoDAO.atualizarVeiculo(veiculoAtualizado);
 	}
 
-	public void removerVeiculo(String placa) {
-		veiculoDAO.removerVeiculo(placa);
-	}
-
 	public List<Veiculo> listarVeiculos() {
 		return veiculoDAO.listarVeiculos();
 	}

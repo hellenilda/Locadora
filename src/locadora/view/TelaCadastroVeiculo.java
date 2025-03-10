@@ -24,7 +24,7 @@ public class TelaCadastroVeiculo extends JFrame {
 		campoPlaca = new JTextField();
 		campoModelo = new JTextField();
 		campoAno = new JTextField();
-		comboTipo = new JComboBox<>(new String[] { "Carro", "Moto", "Caminhão" });
+		comboTipo = new JComboBox<>(new String[] { "Carro", "Moto", "Caminhao" });
 
 		add(new JLabel("Placa:"));
 		add(campoPlaca);
@@ -57,6 +57,7 @@ public class TelaCadastroVeiculo extends JFrame {
 		try {
 			VeiculoController veiculoController = new VeiculoController();
 			veiculoController.cadastrarVeiculo(tipo, placa, modelo, ano);
+			
 
 			JOptionPane.showMessageDialog(this, "Veículo cadastrado com sucesso!", "Sucesso",
 					JOptionPane.INFORMATION_MESSAGE);

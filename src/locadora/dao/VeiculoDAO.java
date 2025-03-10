@@ -25,7 +25,6 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 		carregar(); // Ao iniciar, carrega os veículos do arquivo JSON
 	}
 
-	// Salva o pagamento em JSON
 	@Override
 	public void salvar() {
 		if (veiculos == null) {
@@ -40,12 +39,10 @@ public class VeiculoDAO implements Persistencia<Veiculo> {
 		}
 	}
 
-	// Carrega o registro salvo em JSON
 	@Override
 	public void carregar() {
 		File arquivo = new File(REGISTRO_VEICULOS);
 
-		// Se o arquivo não existe ou está vazio, inicializa a lista e retorna
 		if (!arquivo.exists() || arquivo.length() == 0) {
 			veiculos = new ArrayList<>();
 			return;

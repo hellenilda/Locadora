@@ -18,22 +18,22 @@ public class TelaPrincipal extends JFrame {
 		menuLateral.setLayout(new GridLayout(9, 1, 5, 5));
 		menuLateral.setBackground(new Color(50, 50, 50));
 
-		JButton btnCadastroVeiculo = new JButton("Cadastro de Veículos");
 		JButton btnCadastroCliente = new JButton("Cadastro de Clientes");
+		JButton btnCadastroVeiculo = new JButton("Cadastro de Veículos");
+		JButton btnListagem = new JButton("Listagem de Veículos");
 		JButton btnLocacao = new JButton("Locação de Veículos");
 		JButton btnDevolucao = new JButton("Devolução de Veículos");
-		JButton btnListagem = new JButton("Listagem de Veículos");
 		JButton btnPagamentos = new JButton("Registro de Pagamentos");
 		JButton btnRelatorios = new JButton("Relatórios");
 		JButton btnLogin = new JButton("Login");
 		JButton btnSair = new JButton("Sair");
 
 		// Adiciona os botões ao menu
-		menuLateral.add(btnCadastroVeiculo);
 		menuLateral.add(btnCadastroCliente);
+		menuLateral.add(btnCadastroVeiculo);
+		menuLateral.add(btnListagem);
 		menuLateral.add(btnLocacao);
 		menuLateral.add(btnDevolucao);
-		menuLateral.add(btnListagem);
 		menuLateral.add(btnPagamentos);
 		menuLateral.add(btnRelatorios);
 		menuLateral.add(btnLogin);

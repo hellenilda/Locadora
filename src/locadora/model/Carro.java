@@ -2,8 +2,8 @@ package locadora.model;
 
 public class Carro extends Veiculo {
 
-	public Carro(String placa, String modelo, int ano) {
-		super(placa, modelo, ano);
+	public Carro(String placa,String tipo, String modelo, int ano) {
+		super(placa, tipo+": "+modelo, ano);
 	}
 
 	public double calcularCustoLocacao(int dias) {

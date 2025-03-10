@@ -13,7 +13,9 @@ public abstract class Veiculo {
 		this.disponivel = true;
 	}
 
-	public abstract double calcularCustoLocacao(int dias);
+	public double calcularCustoLocacao(int dias) {
+		return 0.0;
+	};
 
 	public String getPlaca() {
 		return placa;

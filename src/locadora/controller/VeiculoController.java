@@ -20,13 +20,13 @@ public class VeiculoController {
 
 		switch (tipo.toUpperCase()) {
 		case "CARRO":
-			veiculo = new Carro(placa, modelo, ano);
+			veiculo = new Carro(placa, tipo, modelo, ano);
 			break;
 		case "MOTO":
-			veiculo = new Moto(placa, modelo, ano);
+			veiculo = new Moto(placa, tipo, modelo, ano);
 			break;
 		case "CAMINHAO":
-			veiculo = new Caminhao(placa, modelo, ano);
+			veiculo = new Caminhao(placa, tipo, modelo, ano);
 			break;
 		default:
 			System.err.println("Tipo de veículo inválido!");
